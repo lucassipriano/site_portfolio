@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Animação para o fundo gradiente */
+@keyframes gradienteAnimado {
+    0% {
+        background: linear-gradient(to top, #FF6B35, #F4C430);
+    }
+    50% {
+        background: linear-gradient(to top, #F4C430, #FF6B35);
+    }
+    100% {
+        background: linear-gradient(to top, #FF6B35, #F4C430);
+    }
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    animation: gradienteAnimado 2s infinite alternate;
+    color: #333333;
+}
+
+main {
+    flex: 1;
+}
+
+header {
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+#foto {
+    width: 10vw;
+    max-width: 150px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
+    gap: 15px;
+}
+
+.projeto-btn {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 5%;
+    background-color: #333333;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Borda RGB animada nos botões */
+.projeto-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 400%;
+    z-index: -1;
+    animation: borderAnimation 6s linear infinite;
+}
+
+/* Efeito de Hover nos botões */
+.projeto-btn:hover {
+    transform: scale(1.05);
+    background-color: #555555;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de Clique nos botões */
+.projeto-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.redes-socias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Estilo Base para o Wrapper dos Ícones de Redes Sociais */
+.icon-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo dos Ícones */
+.redes-socias i {
+    font-size: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Borda RGB Animada no Hover */
+.icon-wrapper:hover::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 400%;
+    z-index: 0;
+    animation: borderAnimation 6s linear infinite;
+}
+
+/* Efeito de Hover para os Ícones */
+.icon-wrapper:hover {
+    transform: scale(1.1);
+    background-color: #555555;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de Clique para os Ícones */
+.icon-wrapper:active {
+    transform: scale(0.95);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação de Borda */
+@keyframes borderAnimation {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+
+.rodape {
+    padding: 20px;
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+
+/* Estilo dos Pingos de Fogo */
+.pingo-fogo {
+    position: absolute;
+    top: -60px; /* Ponto inicial dos pingos, fora da tela */
+    width: 30px; /* Ajuste o tamanho da chama */
+    height: 50px; /* Ajuste a altura da chama */
+    background-image: url('pingo.png'); /* Caminho da imagem de fogo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    animation: cair 3s linear infinite;
+}
+
+/* Animação de queda */
+@keyframes cair {
+    0% {
+        transform: translateY(-10px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Variando Posição, Velocidade e Tamanho */
+.pingo-fogo:nth-child(1) { left: 5%; animation-duration: 3s; animation-delay: 0s; width: 20px; height: 40px; }
+.pingo-fogo:nth-child(2) { left: 10%; animation-duration: 2.5s; animation-delay: 0.5s; }
+.pingo-fogo:nth-child(3) { left: 15%; animation-duration: 3.2s; animation-delay: 1s; width: 25px; height: 45px; }
+.pingo-fogo:nth-child(4) { left: 20%; animation-duration: 2.8s; animation-delay: 1.5s; width: 30px; height: 50px; }
+.pingo-fogo:nth-child(5) { left: 25%; animation-duration: 2.6s; animation-delay: 2s; }
+.pingo-fogo:nth-child(6) { left: 30%; animation-duration: 3.1s; animation-delay: 2.5s; width: 20px; height: 40px; }
+.pingo-fogo:nth-child(7) { left: 35%; animation-duration: 3s; animation-delay: 3s; }
+.pingo-fogo:nth-child(8) { left: 40%; animation-duration: 2.7s; animation-delay: 3.5s; width: 28px; height: 48px; }
+.pingo-fogo:nth-child(9) { left: 45%; animation-duration: 3.3s; animation-delay: 4s; }
+.pingo-fogo:nth-child(10) { left: 50%; animation-duration: 2.9s; animation-delay: 1.5s; width: 22px; height: 42px; }
+.pingo-fogo:nth-child(11) { left: 60%; animation-duration: 2.8s; animation-delay: 4.5s; width: 20px; height: 42px; }
+.pingo-fogo:nth-child(12) { left: 70%; animation-duration: 2.5s; animation-delay: 2.5s; width: 30px; height: 42px; }
+.pingo-fogo:nth-child(13) { left: 80%; animation-duration: 3.9s; animation-delay: 3.5s; width: 25px; height: 42px; }
+.pingo-fogo:nth-child(14) { left: 90%; animation-duration: 2.3s; animation-delay: 4.5s; width: 28px; height: 42px; }
+.pingo-fogo:nth-child(15) { left: 95%; animation-duration: 2.9s; animation-delay: 2.5s; width: 22px; height: 42px; }
+/* Adicione mais variações se precisar de mais densidade */
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #foto {
+        width: 25vw;
+    }
+
+    .projeto-btn {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    .icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+
+    .rodape {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #foto {
+        width: 30vw;
+    }
+
+    .projeto-btn {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .icon-wrapper {
+        width: 45px;
+        height: 45px;
+    }
+
+    .rodape {
+        font-size: 0.7rem;
+    }
+}
